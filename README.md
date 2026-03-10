@@ -20,8 +20,8 @@ This tool implements a TabPFN-based machine learning classifier trained on strok
 
 | Variable | Type | Description |
 |---|---|---|
-| Age | Continuous | Years |
-| Sex | Binary | Male / Female |
+| Age | Continuous | |
+| Sex | Binary |  |
 | NIHSS | Continuous |  |
 | Glucose | Continuous | mmol/L |
 | Onset to Image | Continuous | Minutes |
