@@ -22,10 +22,10 @@ This tool implements a TabPFN-based machine learning classifier trained on strok
 |---|---|---|
 | Age | Continuous | Years |
 | Sex | Binary | Male / Female |
-| NIHSS | Continuous | Stroke severity score |
+| NIHSS | Continuous |  |
 | Glucose | Continuous | mmol/L |
 | Onset to Image | Continuous | Minutes |
-| Pre-stroke mRS | Continuous | 0–5 |
+| Pre-stroke mRS | Continuous |  |
 | Tmax >6s | Continuous | ml (tissue at risk) |
 | Vessel Occlusion | Categorical | Co-/Non-dominant M2, M3+, A1, A2+, P1, P2 |
 | IVT administered | Binary | Yes / No |
@@ -45,43 +45,6 @@ This tool implements a TabPFN-based machine learning classifier trained on strok
 - **EVT Recommendation** derived from HTE analysis:
   - *EVT not recommended* — if the lower bound of the 95% CI exceeds 23%
   - *Consider EVT* — otherwise
-
----
-
-## Architecture
-
-```
-mdvo_app/        Flutter Web frontend → GitHub Pages
-mdvo_backend/    FastAPI backend      → Hugging Face Spaces
-```
-
-- **Frontend**: Flutter Web (Dart), served via GitHub Pages
-- **Backend**: Python FastAPI with a pre-trained TabPFN classifier (`joblib`), hosted on Hugging Face Spaces at `https://ckur-mdvo-predictor-backend.hf.space`
-
-> **Note**: The backend is hosted on a free Hugging Face Space and may require ~30–60 seconds to wake up after a period of inactivity.
-
----
-
-## Local Development
-
-**Backend**:
-```bash
-cd mdvo_backend
-pip install -r requirements.txt
-uvicorn app:app --reload
-```
-
-**Frontend**:
-```bash
-cd mdvo_app
-flutter run -d chrome
-```
-
-**Build for GitHub Pages**:
-```bash
-cd mdvo_app
-flutter build web --base-href /mdvo_predictor/
-```
 
 ---
 
